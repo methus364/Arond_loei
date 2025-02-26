@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom"
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
     return (
@@ -6,7 +6,7 @@ const Navbar = () => {
             <nav className="navbar fixed-top navbar-expand-lg navbar-light bg-light">
                 <div className="container-fluid">
                     <NavLink to={"/"} className="navbar-brand" >
-                        Navbar
+                        Around Loei
                     </NavLink>
                     <button
                         className="navbar-toggler"
@@ -41,6 +41,11 @@ const Navbar = () => {
                                     Bill
                                 </NavLink>
                             </li>
+                            <li className="nav-item">
+                                <NavLink to={"/profile"} className="nav-link active" aria-current="page">
+                                    Profile
+                                </NavLink>
+                            </li>
                         </ul>
                         <NavLink to={"/login"}>
                             <button className="btn btn-outline-success" type="submit">
@@ -50,9 +55,8 @@ const Navbar = () => {
                     </div>
                 </div>
             </nav>
-
         </>
-    )
-}
+    );
+};
 
-export default Navbar
+export default Navbar;

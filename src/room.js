@@ -5,6 +5,8 @@ export const rooms = [
         status: "ว่าง",
         beds: "เตียงเดี่ยว 1 เตียง",
         image: "https://cdn.pixabay.com/photo/2020/10/18/09/16/bedroom-5664221_1280.jpg", // URL ของภาพห้อง
+        electric: "9",
+        water: "200",
     },
     {
         id: 2,
@@ -12,6 +14,8 @@ export const rooms = [
         status: "ไม่ว่าง",
         beds: "เตียงคู่ 2 เตียง",
         image: "https://cdn.pixabay.com/photo/2020/10/18/09/16/bedroom-5664221_1280.jpg",
+        electric: "9",
+        water: "200",
     },
     {
         id: 3,
@@ -19,6 +23,8 @@ export const rooms = [
         status: "ว่าง",
         beds: "เตียงใหญ่ 1 เตียง",
         image: "https://cdn.pixabay.com/photo/2020/10/18/09/16/bedroom-5664221_1280.jpg",
+        electric: "9",
+        water: "200",
     },
     {
         id: 4,
@@ -26,6 +32,8 @@ export const rooms = [
         status: "ว่าง",
         beds: "เตียงเดี่ยว 1 เตียง",
         image: "https://cdn.pixabay.com/photo/2020/10/18/09/16/bedroom-5664221_1280.jpg",
+        electric: "9",
+        water: "200",
     },
     {
         id: 5,
@@ -33,6 +41,8 @@ export const rooms = [
         status: "ไม่ว่าง",
         beds: "เตียง 2 ชั้น",
         image: "https://cdn.pixabay.com/photo/2020/10/18/09/16/bedroom-5664221_1280.jpg",
+        electric: "9",
+        water: "200",
     },
 ];
 

@@ -1,15 +1,42 @@
-
+import React, { useState } from "react";
 
 const InvoiceForm = () => {
   // ข้อมูลใบแจ้งหนี้
-  const invoiceData = {
+  const [invoiceData, setInvoiceData] = useState({
     roomNumber: "101",
     electricity: 1200,
     water: 300,
     rent: 5000,
     total: 6500,
     date: "2025-02-25",
-    image: 'https://www.scb.co.th/getmedia/2f609c0d-4ec2-4682-a194-137f66371bad/qr-code-generated-7.jpg', // ใส่ URL ของรูปจริงได้
+    image:
+      "https://www.scb.co.th/getmedia/2f609c0d-4ec2-4682-a194-137f66371bad/qr-code-generated-7.jpg",
+  });
+
+  // State สำหรับควบคุม Pop-up แจ้งเตือน
+  const [showPopup, setShowPopup] = useState(false);
+
+  // ฟังก์ชันจัดการการอัปโหลดรูปภาพ
+  const handleImageUpload = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        setInvoiceData((prevData) => ({
+          ...prevData,
+          image: reader.result,
+        }));
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  // ฟังก์ชันจัดการการกดปุ่มยืนยัน
+  const handleConfirm = () => {
+    setShowPopup(true); // แสดง Pop-up
+    setTimeout(() => {
+      setShowPopup(false); // ซ่อน Pop-up หลังจาก 3 วินาที
+    }, 3000);
   };
 
   return (
@@ -93,21 +120,53 @@ const InvoiceForm = () => {
                     readOnly
                   />
                 </div>
-              </form>
 
-              {/* รูปภาพ */}
-              <div className="text-center mt-4">
-                <img
-                  src={invoiceData.image}
-                  alt={`Room ${invoiceData.roomNumber}`}
-                  className="img-fluid rounded shadow"
-                  style={{ maxWidth: "100%", height: "auto" }}
-                />
-              </div>
+                {/* รูปภาพ */}
+                <div className="text-center mt-4">
+                  <div>
+                    <label className="form-label">
+                      <strong>แนบหลักฐานการโอน</strong>
+                    </label>
+                    <input
+                      type="file"
+                      className="mb-3 form-control"
+                      accept="image/*"
+                      onChange={handleImageUpload}
+                    />
+                    <img
+                      src={invoiceData.image}
+                      alt={`Room ${invoiceData.roomNumber}`}
+                      className="img-fluid rounded shadow mb-3"
+                      style={{ maxWidth: "100%", height: "auto" }}
+                    />
+                  </div>
+                </div>
+
+                {/* ปุ่มยืนยัน */}
+                <div className="text-center mt-4">
+                  <button
+                    type="button"
+                    className="btn btn-success px-5"
+                    onClick={handleConfirm}
+                  >
+                    ยืนยัน
+                  </button>
+                </div>
+              </form>
             </div>
           </div>
         </div>
       </div>
+
+      {/* Pop-up แจ้งเตือน */}
+      {showPopup && (
+        <div
+          className="alert alert-success text-center position-fixed top-50 start-50 translate-middle"
+          style={{ zIndex: 1050, width: "300px" }}
+        >
+          <strong>ทำรายการสำเร็จ!</strong>
+        </div>
+      )}
     </div>
   );
 };

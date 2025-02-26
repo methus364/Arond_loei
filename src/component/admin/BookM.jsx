@@ -1,4 +1,4 @@
-import  { useState } from "react";
+import { useState } from "react";
 
 const BookM = () => {
   const [showModal, setShowModal] = useState(false);
@@ -8,6 +8,7 @@ const BookM = () => {
     {
       roomNumber: "101",
       guestName: "คุณสมชาย ใจดี",
+      phone: "081-123-4567",
       checkInDate: "2025-02-25",
       checkOutDate: "2025-02-28",
       guests: 2,
@@ -18,11 +19,9 @@ const BookM = () => {
     {
       roomNumber: "102",
       guestName: "คุณสมหญิง ใจดี",
+      phone: "082-987-6543",
       checkInDate: "2025-02-26",
-      checkOutDate: "2025-02-29",
-      guests: 3,
       roomRate: 5500,
-      totalAmount: 5500,
       image: "https://cdn.pixabay.com/photo/2020/10/18/09/16/bedroom-5664221_1280.jpg",
     },
   ];
@@ -62,19 +61,13 @@ const BookM = () => {
                   <strong>ชื่อผู้จอง:</strong> {detail.guestName}
                 </p>
                 <p>
+                  <strong>เบอร์โทร:</strong> {detail.phone}
+                </p>
+                <p>
                   <strong>วันที่เข้าพัก:</strong> {detail.checkInDate}
                 </p>
                 <p>
-                  <strong>วันที่ออก:</strong> {detail.checkOutDate}
-                </p>
-                <p>
-                  <strong>จำนวนผู้เข้าพัก:</strong> {detail.guests} คน
-                </p>
-                <p>
                   <strong>ค่าเช่าห้อง:</strong> {detail.roomRate.toLocaleString()} บาท
-                </p>
-                <p>
-                  <strong>รวมค่าบริการทั้งหมด:</strong> {detail.totalAmount.toLocaleString()} บาท
                 </p>
               </div>
             </div>
@@ -111,7 +104,7 @@ const BookM = () => {
                   <strong>{selectedRoom.roomNumber}</strong> หรือไม่?
                 </p>
                 <p>ชื่อผู้จอง: {selectedRoom.guestName}</p>
-                <p>รวมค่าบริการทั้งหมด: {selectedRoom.totalAmount.toLocaleString()} บาท</p>
+                <p>เบอร์โทร: {selectedRoom.phone}</p>
               </div>
               <div className="modal-footer">
                 <button

@@ -11,6 +11,9 @@ import LayoutAdmin from '../Layout/LayoutAdmin'
 import Chaech from '../page/admin/Chaech'
 import BookingAdmin from '../page/admin/BookingAdmin'
 import Sawbill from '../page/Sawbill'
+import Profile from '../page/Profile'
+import Memberlist from '../component/Memberlist'
+import Regis from '../page/Regis'
 
 const router = createBrowserRouter([
     {
@@ -23,6 +26,7 @@ const router = createBrowserRouter([
             { path:"bill",element: <Bill/>},
             { path:"check",element: <Chaech/>},
             { path:"book",element: <BookingAdmin/>},
+            { path:"member",element: <Memberlist/>},
         ]
     },
     {
@@ -33,6 +37,8 @@ const router = createBrowserRouter([
             { path:"login",element: <Login/>},
             { path:"report",element: <Reportproblem/>},
             { path:"saw",element: <Sawbill/>},
+            { path:"profile",element: <Profile/>},
+            { path:"register",element: <Regis/>},
         ]
     },
 ])
